@@ -42,9 +42,6 @@ class SocketServer:
         while True:
             try:
                 client, address = self.server.accept()
-                logging.info(f"{address} connected")
-                logging.info("The server stopped")
-                self.server.close()
                 thread = threading.Thread(target=self.handle_client, args=(client, address))
                 thread.start()
                 logging.info(f"Active connections: {threading.activeCount() - 1}")
