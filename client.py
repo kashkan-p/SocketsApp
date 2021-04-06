@@ -8,6 +8,7 @@ class SocketClient:
     FORMAT = "utf-8"
 
     def __init__(self, address, port):
+        """Intializes SocketClient object with server's IP address, port number and creates socket for connection """
         self.address = address
         self.port = port
         self.client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)

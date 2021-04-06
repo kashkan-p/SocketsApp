@@ -7,6 +7,7 @@ class DatabaseManager:
     DB_PATH = "default_database.db"
 
     def __init__(self, db_path=None):
+        """Intializes path to database and creates connection and cursor objects"""
         if db_path is not None:
             self.conn = sqlite3.connect(db_path, check_same_thread=False)
         else:

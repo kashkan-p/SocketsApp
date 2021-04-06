@@ -27,6 +27,8 @@ class SocketServer:
     user"""
 
     def __init__(self, address, port, db):
+        """Initializes SocketServer object with IP address, port number and users database.
+        Creates list of connected clients and users for current session"""
         self.address = address
         self.port = port
         self.db = db
