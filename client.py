@@ -1,6 +1,11 @@
 """This module describes SocketClient class that provides connection to TCP socket messaging server"""
+import logging
 import socket
 import threading
+
+logging.basicConfig(format='%(asctime)s - %(message)s',
+                    datefmt='[%d.%m.%Y - %H:%M:%S]',
+                    level=logging.INFO)
 
 
 class SocketClient:
@@ -22,7 +27,7 @@ class SocketClient:
             send_thread = threading.Thread(target=self.send)
             send_thread.start()
         except:
-            print("The server is unreachable")
+            logging.info("The server is unreachable")
 
     def receive(self):
         """This method receives messages from a server"""
@@ -34,7 +39,7 @@ class SocketClient:
                     self.client.close()
                     break
         except OSError:
-            print("You left the server")
+            logging.info("You left the server")
 
     def send(self):
         """This method sends messages to a server"""
