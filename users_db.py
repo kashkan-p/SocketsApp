@@ -4,14 +4,9 @@ import sqlite3
 
 class DatabaseManager:
     """This class provides connection to database and sending queries"""
-    DB_PATH = "default_database.db"
-
-    def __init__(self, db_path=None):
-        """Intializes path to database and creates connection and cursor objects"""
-        if db_path is not None:
-            self.conn = sqlite3.connect(db_path, check_same_thread=False)
-        else:
-            self.conn = sqlite3.connect(self.DB_PATH, check_same_thread=False)
+    def __init__(self, db_path="default_database.db"):
+        """Initializes path to database and creates connection and cursor objects"""
+        self.conn = sqlite3.connect(db_path, check_same_thread=False)
         self.cursor = self.conn.cursor()
 
     def create_table(self, query):
